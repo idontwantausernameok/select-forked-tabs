@@ -1,0 +1,18 @@
+{
+  "author": "igorlogius",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "description": "Close forked tabs",
+  "icons": {
+  },
+  "manifest_version": 2,
+  "name": "close-forked-tabs",
+  "permissions": [
+    "tabs",
+    "menus"
+  ],
+  "version": "0.1.2"
+}
