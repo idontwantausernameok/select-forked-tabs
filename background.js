@@ -26,7 +26,33 @@ browser.menus.create({
 				hidden: false 
 			});
 			const children = getChildren(tab.id, tabs);
-			browser.tabs.remove([...children]);
+
+			//console.log(children);
+
+			let tmp = {};
+
+			tmp[tab.windowId] = [tab.index];
+
+			tabs.forEach( (t) => {
+				if(children.has(t.id)){
+					if (typeof tmp[t.windowId] === 'undefined'){
+						tmp[t.windowId] = [];
+					} 
+					tmp[t.windowId].push(t.index);
+				}
+			});
+			
+			console.log(JSON.stringify(tmp,null,4));
+
+			for (const [k,v] of Object.entries(tmp)) {
+				browser.tabs.highlight({
+					windowId: parseInt(k),
+					tabs: v,
+					populate: false
+				}); 
+			}
+
+
 		}
 	}
 });
