@@ -27,11 +27,9 @@ browser.menus.create({
 			});
 			const children = getChildren(tab.id, tabs);
 
-			//console.log(children);
-
 			let tmp = {};
 
-			tmp[tab.windowId] = [tab.index];
+			//tmp[tab.windowId] = [tab.index];
 
 			tabs.forEach( (t) => {
 				if(children.has(t.id)){
